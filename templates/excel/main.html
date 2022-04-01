@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>점수 조회</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <style>
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <h2>학번을 입력하시오</h2>
+    <input type="text" id = "name" style = "margin: 0px 0px 20px 0px" name="search_name" value="" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit()}" autofocus/>
+    <button type="button" onclick="search_onclick_submit();" class="btn btn-primary">검색</button>
+    {{ form|safe }}
+    <script>
+        function search_onclick_submit(){
+            location=location.origin +'/pyba/'+ document.getElementById("name").value;
+        }
+    </script>
+</body>
+</html>
